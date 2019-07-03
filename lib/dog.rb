@@ -33,9 +33,7 @@ class Dog
   end
   
   def self.create(hash)
-    arr = []
-    hash.each {|key, value| arr << value}
-    dog = Dog.new(arr)
+    dog = Dog.new(hash)
     dog.save
   end
   
