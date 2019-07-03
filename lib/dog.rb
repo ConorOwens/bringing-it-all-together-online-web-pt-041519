@@ -3,9 +3,10 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
   
-  def initialize(dog)
-    dog.each {|key, value| self.send(("#{key}="), value)}
-    self.id ||= nil
+  def initialize(name:, breed:, id: nil)
+    @name = name
+    @breed = breed 
+    @id = id
   end
   
   def self.create_table
@@ -32,9 +33,7 @@ class Dog
   end
   
   def create(hash)
-    dog = Dog.new(hash)
-    dog.save
-    dog
+    hash.each {|key, value| self.send(("#{key}="), value)}
   end
   
   def update
