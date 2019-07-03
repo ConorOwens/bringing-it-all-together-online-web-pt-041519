@@ -3,10 +3,9 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
   
-  def initialize(name:, breed:, id: nil)
-    @name = name
-    @breed = breed 
-    @id = id
+  def initialize(dog)
+    dog.each {|key, value| self.send(("#{key}="), value)}
+    self.id ||= nil
   end
   
   def self.create_table
@@ -33,7 +32,10 @@ class Dog
   end
   
   def create(hash)
-    
+    dog = Dog.new(hash)
+    dog.save
+    dog
+  end
   
   def update
     DB[:conn].execute("UPDATE dogs SET name = ?, breed = ?, id = ?", self.name, self.breed, self.id)
