@@ -39,7 +39,6 @@ class Dog
     hash.each {|key, value| arr << value}
     dog = Dog.new(arr)
     dog.save
-    dog
   end
   
   def update
