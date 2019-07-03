@@ -52,7 +52,7 @@ class Dog
   end
   
   def self.find_or_create_by(hash)
-    
+    dog = DB[:conn].excute("SELECT * FROM dogs WHERE ")
   end 
   
 end
