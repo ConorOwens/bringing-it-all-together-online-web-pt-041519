@@ -25,6 +25,11 @@ class Dog
   end
   
   def save
-    
+    if self.id
+      self.update
+    else
+      sql = <<-SQL
+      INSERT INTO dogs (name, breed) VALUES (?, ?)
+      SQL
   
 end
