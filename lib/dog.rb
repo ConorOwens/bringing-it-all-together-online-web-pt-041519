@@ -54,7 +54,7 @@ class Dog
   def self.find_or_create_by(name:, breed:)
     dog = DB[:conn].excute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed).first
     if dog
-      dog.update
+      dogger = self.new_from_db(dog)
     else
   end 
   
