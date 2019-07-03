@@ -56,7 +56,9 @@ class Dog
     if dog
       dogger = self.new_from_db(dog)
     else
-      dogger = self.create()
+      dogger = self.create({name: name, breed: breed})
+    end
+    dogger
   end 
   
 end
