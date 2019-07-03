@@ -44,6 +44,9 @@ class Dog
   def self.find_by_id(id)
     DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", id).map do |row|
       Dog.new(row)
+    end.first 
   end
+  
+  def self.new_from_db
   
 end
