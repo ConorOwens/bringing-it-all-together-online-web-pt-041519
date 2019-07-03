@@ -33,7 +33,11 @@ class Dog
   end
   
   def create(hash)
-    hash.each {|key, value| self.send(("#{key}="), value)}
+    arr = []
+    hash.each {|key, value| arr << value}
+    dog = Dog.new(arr)
+    dog.save
+    dog
   end
   
   def update
