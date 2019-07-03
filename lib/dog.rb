@@ -34,7 +34,7 @@ class Dog
     end
   end
   
-  def create(hash)
+  def self.create(hash)
     arr = []
     hash.each {|key, value| arr << value}
     dog = Dog.new(arr)
